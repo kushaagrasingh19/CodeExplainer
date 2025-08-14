@@ -83,3 +83,17 @@ storage/
 - The explainer works without any indexed data, but RAG improves accuracy by retrieving related snippets from your codebase.
 - For security, the API does not execute code. It performs static analysis via LLM + retrieval.
 - You can run ingestion multiple times; content is deduplicated by embeddings.
+
+## Streamlit UI
+
+Run a local UI to paste code and get structured explanations.
+
+```bash
+# In the repo root
+source .venv/bin/activate  # if not already active
+streamlit run streamlit_app.py --server.port 8501
+```
+
+- Make sure `OPENAI_API_KEY` is set (via `.env` or environment).
+- Optional: Use the sidebar to ingest a directory into Chroma for better retrieval.
+- The UI uses the same `ExplainerService` as the API.
